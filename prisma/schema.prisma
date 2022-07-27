@@ -9,3 +9,23 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+enum Status {
+  ENABLED
+  DISABLED
+}
+
+enum Type {
+  PERCENT
+  VALUE
+}
+
+model Program {
+  id                Int      @id @default(autoincrement())
+  productIdentifier String
+  value             Int
+  status            Status   @default(ENABLED)
+  type              Type     @default(PERCENT)
+  startDate         DateTime
+  endDate           DateTime
+}
