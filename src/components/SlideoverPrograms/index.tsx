@@ -55,11 +55,13 @@ const SlideoverPrograms = ({ open, handleSlideover, program }: any) => {
     }
   }
 
-  const updateProgram = async (programValues: any) => {
+  const updateProgram = async (programValues: Inputs) => {
+    console.log(programValues)
     try {
       await axios.post(`/api/programs/${program.id}/update`, {
         ...programValues,
         value: Number(programValues.cashbackValue),
+        type: programValues.cashbackType,
         startDate: new Date(parseISO(programValues.startDate)).toISOString(),
         endDate: new Date(parseISO(programValues.endDate)).toISOString()
       })
