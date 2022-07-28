@@ -9,7 +9,7 @@ import Button from "../Button"
 import Input from "../Input"
 import Select from "../Select"
 import SlideoverBase from "../SlideoverBase"
-import formatDate from "@/utils/formatDate"
+import formatDate from "@/utils/ui/formatDate"
 
 type Inputs = {
   status: string
@@ -152,7 +152,7 @@ const SlideoverPrograms = ({ open, handleSlideover, program }: any) => {
           <div className="flex">
             {program && <Button variant="delete" onClick={() => deleteProgram()}>Deletar</Button>}
 
-            <div className="flex justify-end w-full">
+            <div className="flex w-full justify-end">
               <Button variant="secundary" className="mr-3" onClick={() => handleSlideover(false)}>Cancelar</Button>
               <Button type="submit">Salvar</Button>
             </div>

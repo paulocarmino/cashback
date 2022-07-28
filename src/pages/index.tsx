@@ -5,7 +5,7 @@ import ListItem from "@/components/ListItem";
 import SectionHeader from "@/components/SectionHeader";
 import SlideoverPrograms from "@/components/SlideoverPrograms";
 import getPrograms from "@/queries/getPrograms";
-import prisma from "@/utils/prisma";
+import prisma from "@/utils/db/prisma";
 
 
 const Home = ({ initialPrograms }: any) => {

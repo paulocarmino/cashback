@@ -1,7 +1,7 @@
 //TODO: add style da variant secundary
 
 import React from "react"
-import clsxm from "@/utils/clsxm"
+import clsxm from "@/utils/ui/clsxm"
 
 enum ButtonVariant {
   'default',

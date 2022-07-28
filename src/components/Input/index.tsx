@@ -1,7 +1,7 @@
 import React from "react"
 import { FieldError } from "react-hook-form"
 
-import clsxm from "@/utils/clsxm"
+import clsxm from "@/utils/ui/clsxm"
 
 export type InputProps = {
   label?: string

@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 import { calculeCashbackHandler } from '@/utils/cashbackUtils'
-import prisma from '@/utils/prisma'
+import prisma from '@/utils/db/prisma'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const { productIdentifier, productValue } = req.body

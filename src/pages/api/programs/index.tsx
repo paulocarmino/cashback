@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import prisma from '@/utils/prisma'
+import prisma from '@/utils/db/prisma'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const programsList = await prisma.program.findMany({
