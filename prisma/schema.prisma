@@ -23,9 +23,10 @@ enum Type {
 model Program {
   id                Int      @id @default(autoincrement())
   productIdentifier String
-  value             Int
+  value             Float
   status            Status   @default(ENABLED)
   type              Type     @default(PERCENT)
   startDate         DateTime
   endDate           DateTime
+  createdAt         DateTime @default(now())
 }

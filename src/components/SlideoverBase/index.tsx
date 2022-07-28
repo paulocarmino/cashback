@@ -27,7 +27,7 @@ const SlideoverBase = ({ open, handleSlideover, title, children }: any) => {
 
                         <div>
                           <h3 className="text-lg font-medium leading-6 text-gray-900">{title}</h3>
-                          <p className="mt-1 max-w-2xl text-sm text-gray-500">Use a permanent address where you can receive mail.</p>
+                          <p className="mt-1 max-w-2xl text-sm text-gray-500">Gerencie o programa preenchendo os campos abaixo</p>
                         </div>
 
                         <div className="flex items-center ml-3">

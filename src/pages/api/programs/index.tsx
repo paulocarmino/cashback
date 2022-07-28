@@ -2,7 +2,13 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import prisma from '@/utils/prisma'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  const programsList = await prisma.program.findMany()
+  const programsList = await prisma.program.findMany({
+    orderBy: [
+      {
+        createdAt: 'desc'
+      }
+    ]
+  })
 
   if (programsList.length <= 0) {
     //TODO: put a better error message
