@@ -5,16 +5,20 @@ import ListItem from "@/components/ListItem";
 import SectionHeader from "@/components/SectionHeader";
 import SlideoverPrograms from "@/components/SlideoverPrograms";
 import getPrograms from "@/queries/getPrograms";
+import { ProgramType } from "@/types/program";
 import prisma from "@/utils/db/prisma";
 
+type HomeProps = {
+  initialPrograms: ProgramType[]
+}
 
-const Home = ({ initialPrograms }: any) => {
+const Home = ({ initialPrograms }: HomeProps) => {
   const { programs } = getPrograms(initialPrograms)
 
   const [slideoverProgramsIsOpen, setSlideoverProgramsIsOpen] = useState(false)
-  const [activeProgram, setActiveProgram] = useState(null)
+  const [activeProgram, setActiveProgram] = useState<ProgramType | null>(null)
 
-  const handleSlideoverPrograms = (program?: any) => {
+  const handleSlideoverPrograms = (program?: ProgramType) => {
     if (program) {
       setActiveProgram(program)
     } else {
@@ -35,7 +39,7 @@ const Home = ({ initialPrograms }: any) => {
 
         <div className="overflow-hidden bg-white shadow sm:rounded-md">
           <ul role="list" className="divide-y divide-gray-200">
-            {programs.map(program => (
+            {programs.map((program: ProgramType) => (
               <div onClick={() => handleSlideoverPrograms(program)} key={program.id}>
                 <ListItem program={program} />
               </div>

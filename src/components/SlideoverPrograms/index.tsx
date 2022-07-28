@@ -9,23 +9,15 @@ import Button from "../Button"
 import Input from "../Input"
 import Select from "../Select"
 import SlideoverBase from "../SlideoverBase"
+import { ProgramType } from "@/types/program"
 import formatDate from "@/utils/ui/formatDate"
 
-type Inputs = {
-  status: string
-  cashbackType: string
-  productIdentifier: string
-  cashbackValue: number
-  startDate: string
-  endDate: string
-}
-
 const SlideoverPrograms = ({ open, handleSlideover, program }: any) => {
-  const { register, handleSubmit, setValue, reset, formState: { errors } } = useForm<Inputs>();
+  const { register, handleSubmit, setValue, reset, formState: { errors } } = useForm<ProgramType>();
 
   const handleTitle = () => program ? 'Editando programa' : 'Adicionar programa'
 
-  const handleSubmitProgram = (values: Inputs) => {
+  const handleSubmitProgram = (values: ProgramType) => {
     if (program) {
       updateProgram(values)
       return
@@ -34,7 +26,7 @@ const SlideoverPrograms = ({ open, handleSlideover, program }: any) => {
     createProgram(values)
   }
 
-  const createProgram = async (programValues: Inputs) => {
+  const createProgram = async (programValues: ProgramType) => {
     try {
       await axios.post(`/api/programs/create`, {
         ...programValues,
@@ -55,7 +47,7 @@ const SlideoverPrograms = ({ open, handleSlideover, program }: any) => {
     }
   }
 
-  const updateProgram = async (programValues: Inputs) => {
+  const updateProgram = async (programValues: ProgramType) => {
     console.log(programValues)
     try {
       await axios.post(`/api/programs/${program.id}/update`, {
