@@ -7,7 +7,9 @@ module.exports = {
     '!src/pages/**/*.tsx',
     '!src/**/stories.tsx',
     '!src/pages/_app.tsx',
-    '!src/pages/index.tsx'
+    '!src/pages/index.tsx',
+    '!src/components/**/*.ts(x)?',
+    '!src/queries/**/*.ts'
   ],
   coveragePathIgnorePatterns: ['<rootDir>/src/utils'],
   setupFilesAfterEnv: ['<rootDir>/.jest/setup.ts'],
