@@ -13,7 +13,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   })
 
   if (!programFromDB) {
-    res.status(404).json({ error: 'PROGRAM_NOT_FOUND', message: 'Program not found.' })
+    return res.status(404).json({ error: 'PROGRAM_NOT_FOUND', message: 'Program not found.' })
+  }
+
+  if (programFromDB?.status === 'DISABLED') {
+    return res.status(400).json({ error: 'PROGRAM_DISABLED', message: 'This program is disabled.' })
   }
 
   const cashbackValue = calculeCashbackHandler(programFromDB, productValue)
