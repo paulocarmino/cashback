@@ -1,59 +1,67 @@
-# Next.js + Tailwind CSS + TypeScript Starter
+<h1 align="center" style="font-size:4em">Cashback App</h1>
+<p align="center">Um simples app para cadastrar cashbacks.</p>
+<p align="center"><img width=100% src="https://res.cloudinary.com/paulocarmino/image/upload/v1659037890/cashbackapp_f5pdcq.png"></p>
 
-This is a [Next.js](https://nextjs.org/) boilerplate using [TailwindCSS](https://tailwindcss.com/) and other cool stuff.
+<p align="center">Experimente o app acessando a url abaixo:</p>
+<p align="center"><a href="https://cashbackapp.vercel.app/">https://cashbackapp.vercel.app</a></p>
 
-## What is inside?
+# Tecnologias envolvidas
 
-This project uses lot of stuff as:
+- React
+- Next.JS
+- TailwindCSS
+- Prisma
 
-[WIP]
+# Endpoints via API Routes
 
-## Getting Started
+```
+# POST /api/cashback/check
 
-First, run the development server:
+Request:
 
-```bash
-npm run dev
-# or
-yarn dev
+{
+  "productIdentifier": "cashback-10%",
+  "productValue": 823
+}
+
+Response:
+
+{
+  "cashbackValue": 82.29999999999995
+}
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+`GET /api/programs`
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+`POST /api/programs/create`
 
-## Commands
+`PUT /api/programs/[programId]/update`
 
-- `dev`: runs your application on `localhost:3000`
-- `build`: creates the production build version
-- `start`: starts a simple server with the build production code
-- `lint`: runs the linter in all components and pages
-- `test`: runs jest to test all components and pages
-- `test:watch`: runs jest in watch mode
-- `generate ComponentName`: to generate a component structure
-- `storybook`: runs storybook on `localhost:6006`
-- `build-storybook`: create the build version of storybook
+`DELETE /api/programs/[programId]/remove`
 
-## Learn More
+# Rodando o projeto
 
-To learn more about Next.js, take a look at the following resources:
+```
+# Clone esse repositorio
+git clone https://github.com/paulocarmino/cashback
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Entre no repositorio
+cd cashback
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+# Instale as dependencias
+yarn install
 
-## Deploy on Vercel
+# Inicie o banco pelo docker-compose
+docker-compose up -d
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Build o projeto
+yarn run build
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+# Rodando o projeto
+yarn run start
+```
 
-## Endpoints
+# Licença
 
-POST /api/cashback/check
-
-GET /api/programs
-POST /api/programs/create
-PUT /api/programs/[programId]/update
-DELETE /api/programs/[programId]/remove
+MIT

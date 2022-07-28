@@ -2,6 +2,7 @@ import { GetServerSideProps } from "next";
 import Head from "next/head";
 import { useState } from "react";
 import ListItem from "@/components/ListItem";
+import NoData from "@/components/NoData";
 import SectionHeader from "@/components/SectionHeader";
 import SlideoverPrograms from "@/components/SlideoverPrograms";
 import getPrograms from "@/queries/getPrograms";
@@ -38,14 +39,23 @@ const Home = ({ initialPrograms }: HomeProps) => {
         <SectionHeader sectionAction={handleSlideoverPrograms} />
 
         <div className="overflow-hidden bg-white shadow sm:rounded-md">
-          <ul role="list" className="divide-y divide-gray-200">
-            {programs.map((program: ProgramType) => (
-              <div onClick={() => handleSlideoverPrograms(program)} key={program.id}>
-                <ListItem program={program} />
-              </div>
-            ))}
-          </ul>
+
+          {programs.length >= 1 && (
+            <ul role="list" className="divide-y divide-gray-200">
+              {programs.map((program: ProgramType) => (
+                <div onClick={() => handleSlideoverPrograms(program)} key={program.id}>
+                  <ListItem program={program} />
+                </div>
+              ))}
+            </ul>
+          )}
         </div>
+
+        {programs.length <= 0 && (
+          <div className="mt-12">
+            <NoData />
+          </div>
+        )}
 
         <SlideoverPrograms
           open={slideoverProgramsIsOpen}
