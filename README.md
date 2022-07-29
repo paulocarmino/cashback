@@ -55,6 +55,9 @@ yarn install
 # Inicie o banco pelo docker-compose
 docker-compose up -d
 
+# Aplique as migrations no banco
+yarn run prisma migrate deploy
+
 # Build o projeto
 yarn run build
 
